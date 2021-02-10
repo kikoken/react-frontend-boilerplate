@@ -17,7 +17,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "CI=true react-scripts test",
+    "test": "npm run test-script",
+    "test-script": "CI=true react-scripts test",
     "eject": "react-scripts eject",
     "postinstall": "husky install",
     "lint-check": "eslint ."
@@ -75,7 +76,8 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "lint-staged"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
