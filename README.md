@@ -27,7 +27,8 @@ This project based bootstrapped with [Create React App](https://github.com/faceb
     - wireframe for views
 - Pages
     - Final View
-
+    
+https://blog.ida.cl/desarrollo/que-es-el-atomic-design/
 
 **Pure Component**
 - fn(state, props) == UI
