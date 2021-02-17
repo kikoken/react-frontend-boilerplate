@@ -1,6 +1,3 @@
-
-const SingIn = () => {
-    return true
-}
+const SingIn = () => true;
 
 export default SingIn;
