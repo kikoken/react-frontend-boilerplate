@@ -1,5 +1,5 @@
-import api from 'infraestructure/api'
-import client from 'infraestructure/api/axios'
+import api from 'infrastructure/api'
+import client from 'infrastructure/api/axios'
 
 // repositories
 import AuthRepository from './auth.repository'
