@@ -31,6 +31,7 @@
     "no-multi-spaces": "error",
     "space-in-parens": "error",
     "no-multiple-empty-lines": "error",
+    "implicit-arrow-linebreak":"off",
     "prefer-const": "error",
     "no-use-before-define": "error",
     "no-unused-vars": ["warn", { "args": "none", "argsIgnorePattern": "req|res|next|val" }],
