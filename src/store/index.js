@@ -1,13 +1,13 @@
-import configureStore from './configureStore';
+import configureStore from './configureStore'
 
-const initialState = {};
-let store = null;
+const initialState = {}
+let store = null
 
 export default () => {
   if (store === null) {
-    const result = configureStore({ initialState });
-    store = result.store;
+    const result = configureStore({ initialState })
+    store = result.store
   }
 
-  return { store };
-};
+  return { store }
+}
