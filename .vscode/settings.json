@@ -5,5 +5,22 @@
     "editor.formatOnSave": true,
     "editor.formatOnPaste": false
   },
-  "prettier.printWidth": 80
+  "prettier.printWidth": 80,
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#4d2005",
+    "titleBar.activeBackground": "#1d0c02",
+    "titleBar.activeForeground": "#e7e7e7",
+    "activityBar.activeBackground": "#4d2005",
+    "activityBar.activeBorder": "#087832",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#087832",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "statusBar.background": "#1d0c02",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#4d2005",
+    "titleBar.inactiveBackground": "#1d0c0299",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#1d0c02"
 }
