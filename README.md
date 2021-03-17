@@ -80,6 +80,12 @@ control side-effects in a React-Redux application, but with the added bonus of u
 
 ## Coding Style
 
+### Linter
+
+This project use Airbnbguidestyle for react and trigger githook used husky setup.
+
+https://githooks.com/
+
 ### Component Creation
 
 - Write a stateless functional component first
