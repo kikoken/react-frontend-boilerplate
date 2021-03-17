@@ -86,6 +86,25 @@ This project use Airbnbguidestyle for react and trigger githook used husky setup
 
 https://githooks.com/
 
+### Commitlint
+
+This project use conventional commit rules and trigger commit-msg watcher for check the semantic's commit
+
+https://www.conventionalcommits.org/en/v1.0.0/
+
+#### Specifications
+* **fix:** a commit of the type fix patches a bug in your codebase (this correlates with PATCH in Semantic Versioning).
+* **feat:** a commit of the type feat introduces a new feature to the codebase (this correlates with MINOR in Semantic Versioning).
+* **BREAKING CHANGE:** a commit that has a footer BREAKING CHANGE:, or appends a ! after the type/scope, introduces a breaking API change (correlating with MAJOR in Semantic Versioning). A BREAKING CHANGE can be part of commits of any type.
+types other than fix: and feat: are allowed, for example @commitlint/config-conventional (based on the the Angular convention) recommends build:, chore:, ci:, docs:, style:, refactor:, perf:, test:, and others.
+
+Ex:
+```
+feat: allow provided config object to extend other configs
+BREAKING CHANGE: `extends` key in config file is now used for extending other config files
+```
+
+
 ### Component Creation
 
 - Write a stateless functional component first
