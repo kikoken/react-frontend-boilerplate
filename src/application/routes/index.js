@@ -11,8 +11,8 @@ const RouterConfig = () => (
   <Switch>
     <Route exact path="/" component={Login} />
 
-    <PrivateRoute path="/pedidos">
-      <Pedidos />
+    <PrivateRoute path="/private">
+      <PrivatePage />
     </PrivateRoute>
 
     <Route path="*">

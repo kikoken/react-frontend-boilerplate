@@ -1,3 +1,9 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
 
-export default () => combineReducers({});
+// reducers
+import authReducer, { NAME as authName } from 'domain/auth/features'
+
+export default () =>
+  combineReducers({
+    [authName]: authReducer
+  })
