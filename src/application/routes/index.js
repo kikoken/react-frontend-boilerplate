@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 // Pages
 import NotFound from 'ui/containers/PageNotFound'
 import Login from 'ui/containers/Login'
+import PrivatePage from 'ui/containers/PrivatePage'
 
 // component Route
 import PrivateRoute from './PrivateRoute'

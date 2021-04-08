@@ -2,7 +2,7 @@ import api from 'infrastructure/api'
 import client from 'infrastructure/api/axios'
 
 // repositories
-import AuthRepository from './auth.repository'
+import AuthRepository from 'domain/auth/auth.repository'
 
 const auth = AuthRepository()
 

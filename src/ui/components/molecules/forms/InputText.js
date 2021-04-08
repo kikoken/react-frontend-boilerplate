@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types'
 
-//components
+// components
 import MessageInputError from 'ui/components/atoms/MessageInputError'
 
-const Input = (props) => {
+const InputText = (props) => {
   const { id, name, value, error, placeholder, onChange } = props
 
   return (
     <div className="Input Input-text">
-      <label for={name}>
+      <label htmlFor={name}>
         <span className="Input-label">{name}</span>
         <input
           id={id}
@@ -24,13 +24,17 @@ const Input = (props) => {
   )
 }
 
-Input.propTypes = {
+InputText.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
-  placeHolder: PropTypes.string.isRequired,
-  onChange: PropTypes.function.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
   error: PropTypes.string
 }
 
-export default Input
+InputText.defaultProps = {
+  error: undefined
+}
+
+export default InputText

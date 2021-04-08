@@ -6,8 +6,4 @@ TitleView.propTypes = {
   text: PropTypes.string.isRequired
 }
 
-TitleView.defaultProps = {
-  text: 'Your Title View'
-}
-
 export default TitleView

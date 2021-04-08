@@ -3,15 +3,15 @@ import { initReactI18next } from 'react-i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 
 // Languages
-import es from './es.json'
-import pt from './pt.json'
-import en from './en.json'
+import es from './language/es.json'
+import pt from './language/pt.json'
+import en from './language/en.json'
 
 // the translations
 const resources = {
   es: { translation: es },
-  en: { translation: es },
-  pt: { translation: es }
+  en: { translation: en },
+  pt: { translation: pt }
 }
 
 // eslint-disable-next-line import/prefer-default-export

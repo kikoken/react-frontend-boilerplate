@@ -1,9 +1,9 @@
 import { takeLatest } from 'redux-saga/effects'
 
-//actions
+// actions
 import { actionCreators as authActions } from 'domain/auth/features'
 
-//Sagas
+// Sagas
 import tryAuthSignIn from 'domain/auth/sagas/signIn'
 
 export default function* rootSaga() {

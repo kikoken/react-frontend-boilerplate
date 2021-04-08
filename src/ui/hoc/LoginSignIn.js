@@ -1,20 +1,25 @@
 import { useState } from 'react'
 
-//components
-import InputText from 'ui/components/molecules/formsInputText'
+// components
+import InputText from 'ui/components/molecules/forms/InputText'
 import InputPassword from 'ui/components/molecules/forms/InputPassword'
 import ButtonSubmit from 'ui/components/molecules/forms/ButtonSubmit'
 
 // utils
-import { ValidateUsername, ValidatePassword } from 'utils/validate'
+// import { ValidateUsername, ValidatePassword } from 'utils/validate'
 
 const LoginSignIn = () => {
-  const [userName, setuserName] = useState('')
+  const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
   const [errorUsername, setErrorUsername] = useState('')
   const [errorPassword, setErrorPassword] = useState('')
 
-  const onHandlerSubmit = () => console.log('Submit form')
+  const onHandlerSubmit = () => {
+    setErrorUsername(true)
+    setErrorPassword(true)
+    // eslint-disable-next-line no-console
+    console.log('Submit form')
+  }
 
   return (
     <>
@@ -35,7 +40,7 @@ const LoginSignIn = () => {
           placeholder="Password..."
           onChange={(e) => setPassword(e.target.value)}
         />
-        <ButtonSubmit onClick={onHandlerSubmit} text={'Sign In'} />
+        <ButtonSubmit onClick={onHandlerSubmit} text="Sign In" />
       </form>
     </>
   )

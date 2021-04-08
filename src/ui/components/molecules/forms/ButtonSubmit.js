@@ -11,8 +11,4 @@ ButtonSubmit.propTypes = {
   onClick: PropTypes.func.isRequired
 }
 
-ButtonSubmit.defaultProps = {
-  label: 'Text...'
-}
-
 export default ButtonSubmit
