@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types'
 
-const ButtonSubmit = ({ label, onClick }) => (
+const ButtonSubmit = ({ text, onClick }) => (
   <button className="Button Button-submit" type="submit" onClick={onClick}>
-    {label}
+    {text}
   </button>
 )
 
 ButtonSubmit.propTypes = {
-  label: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired
 }
 

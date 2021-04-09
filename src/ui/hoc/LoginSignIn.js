@@ -5,18 +5,18 @@ import InputText from 'ui/components/molecules/forms/InputText'
 import InputPassword from 'ui/components/molecules/forms/InputPassword'
 import ButtonSubmit from 'ui/components/molecules/forms/ButtonSubmit'
 
-// utils
-// import { ValidateUsername, ValidatePassword } from 'utils/validate'
+// hooks
+import usePasswordValidation from 'application/hooks/usePasswordValidation'
 
 const LoginSignIn = () => {
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
-  const [errorUsername, setErrorUsername] = useState('')
-  const [errorPassword, setErrorPassword] = useState('')
 
-  const onHandlerSubmit = () => {
-    setErrorUsername(true)
-    setErrorPassword(true)
+  const { validPassword } = usePasswordValidation(password)
+
+  const onHandlerSubmit = (e) => {
+    e.preventDefault()
+
     // eslint-disable-next-line no-console
     console.log('Submit form')
   }
@@ -27,7 +27,7 @@ const LoginSignIn = () => {
         <InputText
           id="username"
           name="username"
-          error={errorUsername}
+          error={null}
           value={userName}
           placeholder="Username..."
           onChange={(e) => setUserName(e.target.value)}
@@ -35,7 +35,7 @@ const LoginSignIn = () => {
         <InputPassword
           id="password"
           name="password"
-          error={errorPassword}
+          error={!validPassword ?? 'Error en su password, verifique'}
           value={password}
           placeholder="Password..."
           onChange={(e) => setPassword(e.target.value)}
