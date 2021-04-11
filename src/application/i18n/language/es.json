@@ -1,4 +1,6 @@
 {
     "form.field.required": "Campos Obligatorios",
+    "form.field.username": "Usuario",
+    "form.field.password": "Clave",
     "button.enter": "Ingresar"
 }

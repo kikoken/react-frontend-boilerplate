@@ -1,6 +1,5 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import LanguageDetector from 'i18next-browser-languagedetector'
 
 // Languages
 import es from './language/es.json'
@@ -17,16 +16,15 @@ const resources = {
 // eslint-disable-next-line import/prefer-default-export
 export const defaultLanguage = 'es'
 
-i18n
-  .use(LanguageDetector)
-  .use(initReactI18next)
-  .init({
-    resources,
-    fallbackLanguage: defaultLanguage,
-    interpolation: {
-      escapeValue: false
-    }
-  })
+i18n.use(initReactI18next).init({
+  resources,
+  lng: 'es',
+  keySeparator: false,
+  fallbackLanguage: defaultLanguage,
+  interpolation: {
+    escapeValue: false
+  }
+})
 
 export const lang = [
   { value: 'es', name: 'Espanol' },

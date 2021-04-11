@@ -1,5 +1,5 @@
 // HOC
-import { LoginSignIn } from 'ui/hoc'
+import { SignIn } from 'ui/hoc'
 
 // Components
 import TitleView from 'ui/components/atoms/TitleView'
@@ -7,7 +7,7 @@ import TitleView from 'ui/components/atoms/TitleView'
 const Login = () => (
   <section>
     <TitleView text="Login View" />
-    <LoginSignIn />
+    <SignIn />
   </section>
 )
 

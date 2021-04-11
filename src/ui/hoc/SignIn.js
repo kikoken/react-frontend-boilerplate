@@ -13,7 +13,7 @@ import MessageInputError from 'ui/components/atoms/MessageInputError'
 // translations
 import { useTranslation } from 'react-i18next'
 
-const LoginSignIn = () => {
+const SignIn = () => {
   const { t } = useTranslation()
 
   const [userName, setUserName] = useState('')
@@ -46,7 +46,7 @@ const LoginSignIn = () => {
           name="username"
           error={null}
           value={userName}
-          placeholder="Username..."
+          placeholder={t('form.field.username')}
           onChange={(e) => setUserName(e.target.value)}
         />
         <InputPassword
@@ -54,7 +54,7 @@ const LoginSignIn = () => {
           name="password"
           error={password.length && !validPassword ? ' Error password' : null}
           value={password}
-          placeholder="Password..."
+          placeholder={t('form.field.password')}
           onChange={(e) => setPassword(e.target.value)}
         />
         {errorEmpty ? <MessageInputError error={t('form.error.field.required')} /> : null}
@@ -65,4 +65,4 @@ const LoginSignIn = () => {
   )
 }
 
-export default LoginSignIn
+export default SignIn
