@@ -18,8 +18,8 @@ const InputText = (props) => {
           placeholder={placeholder}
           onChange={onChange}
         />
-        {!error ?? <MessageInputError msg={error} />}
       </label>
+      {!error ?? <MessageInputError msg={error} />}
     </div>
   )
 }

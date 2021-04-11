@@ -1,4 +1,5 @@
-import { useState } from 'react'
+/* eslint-disable no-console */
+import { useState, useEffect } from 'react'
 
 // components
 import InputText from 'ui/components/molecules/forms/InputText'
@@ -12,7 +13,12 @@ const LoginSignIn = () => {
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
 
-  const { validPassword } = usePasswordValidation(password)
+  const { validPassword, verifiedPassword } = usePasswordValidation(password)
+
+  useEffect(() => {
+    console.log(validPassword)
+    verifiedPassword(password)
+  }, [password])
 
   const onHandlerSubmit = (e) => {
     e.preventDefault()
@@ -35,7 +41,7 @@ const LoginSignIn = () => {
         <InputPassword
           id="password"
           name="password"
-          error={!validPassword ?? 'Error en su password, verifique'}
+          error={null}
           value={password}
           placeholder="Password..."
           onChange={(e) => setPassword(e.target.value)}
