@@ -44,6 +44,7 @@ const SignIn = () => {
         <InputText
           id="username"
           name="username"
+          label={t('form.field.username')}
           error={null}
           value={userName}
           placeholder={t('form.field.username')}
@@ -52,6 +53,7 @@ const SignIn = () => {
         <InputPassword
           id="password"
           name="password"
+          label={t('form.field.password')}
           error={password.length && !validPassword ? ' Error password' : null}
           value={password}
           placeholder={t('form.field.password')}

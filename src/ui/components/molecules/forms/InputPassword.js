@@ -4,12 +4,12 @@ import PropTypes from 'prop-types'
 import MessageInputError from 'ui/components/atoms/MessageInputError'
 
 const InputPassword = (props) => {
-  const { id, name, value, error, placeholder, onChange } = props
+  const { id, name, label, value, error, placeholder, onChange } = props
 
   return (
     <div className="Input Input-password">
       <label htmlFor={name}>
-        <span className="Input-label">{name}</span>
+        <span className="Input-label">{label}</span>
         <input
           id={id}
           name={name}
@@ -27,6 +27,7 @@ const InputPassword = (props) => {
 InputPassword.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
