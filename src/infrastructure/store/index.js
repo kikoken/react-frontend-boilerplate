@@ -3,7 +3,7 @@ import configureStore from './configureStore'
 const initialState = {}
 let store = null
 
-export default () => {
+const Store = () => {
   if (store === null) {
     const result = configureStore({ initialState })
     store = result.store
@@ -11,3 +11,5 @@ export default () => {
 
   return { store }
 }
+
+export default Store

@@ -1,6 +1,6 @@
 const RESOURCE = '/auth'
 
 export default (client) =>
-  Object.frezze({
+  Object.freeze({
     authorize: (payload) => client.post(`${RESOURCE}`, payload)
   })
