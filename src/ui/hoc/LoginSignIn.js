@@ -8,23 +8,34 @@ import ButtonSubmit from 'ui/components/molecules/forms/ButtonSubmit'
 
 // hooks
 import usePasswordValidation from 'application/hooks/usePasswordValidation'
+import MessageInputError from 'ui/components/atoms/MessageInputError'
+
+// translations
+import { useTranslation } from 'react-i18next'
 
 const LoginSignIn = () => {
+  const { t } = useTranslation()
+
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
+  const [errorEmpty, setErrorEmpty] = useState(false)
 
   const { validPassword, verifiedPassword } = usePasswordValidation(password)
 
   useEffect(() => {
-    console.log(validPassword)
     verifiedPassword(password)
   }, [password])
 
   const onHandlerSubmit = (e) => {
     e.preventDefault()
 
-    // eslint-disable-next-line no-console
-    console.log('Submit form')
+    try {
+      if (!userName.length || !password.length) throw new Error('Campo obligatorio')
+
+      console.log('Submit form')
+    } catch (error) {
+      setErrorEmpty(true)
+    }
   }
 
   return (
@@ -41,12 +52,14 @@ const LoginSignIn = () => {
         <InputPassword
           id="password"
           name="password"
-          error={null}
+          error={password.length && !validPassword ? ' Error password' : null}
           value={password}
           placeholder="Password..."
           onChange={(e) => setPassword(e.target.value)}
         />
-        <ButtonSubmit onClick={onHandlerSubmit} text="Sign In" />
+        {errorEmpty ? <MessageInputError error={t('form.error.field.required')} /> : null}
+        <hr />
+        <ButtonSubmit onClick={onHandlerSubmit} text={t('button.enter')} />
       </form>
     </>
   )

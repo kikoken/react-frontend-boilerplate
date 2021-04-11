@@ -1,16 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 import { ValidatePassword } from 'utils/validate'
 
 const usePasswordValidation = () => {
   const [validPassword, setValidPassword] = useState(false)
-  const [password, setPassword] = useState('')
 
-  useEffect(() => {
-    setValidPassword(ValidatePassword(password))
-  }, [password])
-
-  const verifiedPassword = (pass) => setPassword(pass)
+  const verifiedPassword = (password) => setValidPassword(ValidatePassword(password))
 
   return {
     validPassword,

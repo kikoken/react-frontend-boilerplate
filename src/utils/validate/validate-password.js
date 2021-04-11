@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /**
  * Validate the password
  * @description verified that ,
@@ -11,7 +10,6 @@ const ValidatePassword = (password) => {
   if (typeof password !== 'string' || password === undefined) return false
   if (password.length !== 8) return false
   if (!regExp.test(password)) return false
-  console.log('pass: ', password)
 
   return true
 }

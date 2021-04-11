@@ -18,7 +18,7 @@ const InputPassword = (props) => {
           placeholder={placeholder}
           onChange={onChange}
         />
-        {!error ?? <MessageInputError msg={error} />}
+        {error ? <MessageInputError msg={error} /> : null}
       </label>
     </div>
   )
