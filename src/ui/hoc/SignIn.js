@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import { useState, useEffect } from 'react'
+import { Redirect, useHistory } from 'react-router-dom'
 
 // components
 import InputText from 'ui/components/molecules/forms/InputText'
@@ -15,6 +16,7 @@ import { useTranslation } from 'react-i18next'
 
 const SignIn = () => {
   const { t } = useTranslation()
+  const history = useHistory()
 
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
@@ -32,11 +34,14 @@ const SignIn = () => {
     try {
       if (!userName.length || !password.length) throw new Error('Campo obligatorio')
 
-      console.log('Submit form')
+      localStorage.setItem('token', 'hahahajajah')
+      history.push('/app')
     } catch (error) {
       setErrorEmpty(true)
     }
   }
+
+  if (localStorage.getItem('token')) return <Redirect to="/app" />
 
   return (
     <>
