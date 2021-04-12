@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 // Components
 import NotFound from 'ui/containers/PageNotFound'
-import RouteWithSubRoutes from './RouteWithSubRoute'
 
 /**
  * Use this component for any new section of routes (any config object that has a "routes" property
@@ -11,15 +10,19 @@ import RouteWithSubRoutes from './RouteWithSubRoute'
 const RenderRoutes = ({ routes }) => (
   <Switch>
     {routes.map((route) => (
-      <RouteWithSubRoutes key={route.key} {...route} />
+      <Route
+        key={route.key}
+        path={route.path}
+        exact={route.exact}
+        render={(props) => <route.component {...props} routes={route.routes} />}
+      />
     ))}
-
-    <Route component={<NotFound />} />
+    <Route path="*" component={NotFound} />
   </Switch>
 )
 
 RenderRoutes.propTypes = {
-  routes: PropTypes.shape([]).isRequired
+  routes: PropTypes.arrayOf(PropTypes.shape({})).isRequired
 }
 
 export default RenderRoutes

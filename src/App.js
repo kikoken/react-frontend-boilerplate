@@ -1,15 +1,13 @@
-import { BrowserRouter as Router } from 'react-router-dom'
-
-import ROUTES from 'application/routes'
-import RenderRoutes from 'application/routes/RenderRoutes'
+import RouterConfig from 'application/routes'
 
 function App() {
   return (
     <main>
-      <h1>Arquetipo SimpliRoute</h1>
-      <Router>
-        <RenderRoutes routes={ROUTES} />
-      </Router>
+      <header>
+        <h1>SimpliRoute</h1>
+        <hr />
+      </header>
+      <RouterConfig />
     </main>
   )
 }

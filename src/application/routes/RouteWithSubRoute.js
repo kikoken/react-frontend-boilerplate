@@ -5,16 +5,20 @@ const RouteWithSubRoute = ({ route }) => (
   <Route
     path={route.path}
     exact={route.exact}
-    render={(props) => <Route component {...props} routes={route.routes} />}
+    render={(props) => <route.component routes={route.routes} {...props} />}
   />
 )
 
 RouteWithSubRoute.propTypes = {
   route: PropTypes.shape({
     path: PropTypes.string.isRequired,
-    exact: PropTypes.bool.isRequired,
-    routes: PropTypes.shape({})
-  }).isRequired
+    exact: PropTypes.bool,
+    routes: PropTypes.arrayOf(PropTypes.shape({}))
+  })
+}
+
+RouteWithSubRoute.defaultProps = {
+  route: PropTypes.shape({})
 }
 
 export default RouteWithSubRoute

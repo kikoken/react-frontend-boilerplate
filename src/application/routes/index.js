@@ -1,35 +1,12 @@
-import { Redirect } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 
-// Pages
-import Login from 'ui/containers/Login'
-// Components
 import RenderRoutes from './RenderRoutes'
+import ROUTES from './Routes'
 
-const ROUTES = [
-  { path: '/', key: 'ROOT', exact: true, component: Login },
-  {
-    path: '/app',
-    key: 'APP',
-    component: (props) => {
-      if (!localStorage.getItem('token')) return <Redirect to="/" />
+const RouteConfig = () => (
+  <Router>
+    <RenderRoutes routes={ROUTES} />
+  </Router>
+)
 
-      return <RenderRoutes {...props} />
-    },
-    routes: [
-      {
-        path: '/app',
-        key: 'APP_ROOT',
-        exact: true,
-        component: (props) => <h1>APP ROOT</h1>
-      },
-      {
-        path: '/app/page',
-        key: 'APP_PAGE',
-        exact: true,
-        component: (props) => <h1>APP PAGE</h1>
-      }
-    ]
-  }
-]
-
-export default ROUTES
+export default RouteConfig
