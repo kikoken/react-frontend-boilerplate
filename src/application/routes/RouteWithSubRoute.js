@@ -13,8 +13,8 @@ RouteWithSubRoute.propTypes = {
   route: PropTypes.shape({
     path: PropTypes.string.isRequired,
     exact: PropTypes.bool.isRequired,
-    routes: PropTypes.array
-  })
+    routes: PropTypes.shape({})
+  }).isRequired
 }
 
 export default RouteWithSubRoute

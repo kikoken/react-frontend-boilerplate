@@ -1,10 +1,9 @@
 import { Redirect } from 'react-router-dom'
 
-// Components
-import RenderRoutes from './RenderRoutes'
-
 // Pages
 import Login from 'ui/containers/Login'
+// Components
+import RenderRoutes from './RenderRoutes'
 
 const ROUTES = [
   { path: '/', key: 'ROOT', exact: true, component: Login },
