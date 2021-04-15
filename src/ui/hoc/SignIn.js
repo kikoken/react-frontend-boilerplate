@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 import { useState, useEffect } from 'react'
 import { Redirect, useHistory } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 // components
-import InputText from 'ui/components/molecules/forms/InputText'
+import InputEmail from 'ui/components/molecules/forms/InputEmail'
 import InputPassword from 'ui/components/molecules/forms/InputPassword'
 import ButtonSubmit from 'ui/components/molecules/forms/ButtonSubmit'
 
@@ -15,7 +15,7 @@ import MessageInputError from 'ui/components/atoms/MessageInputError'
 // translations
 import { useTranslation } from 'react-i18next'
 
-import { actionCreators as authAction, selector as authSelector } from 'domain/auth/features'
+import { actionCreators as authAction } from 'domain/auth/features'
 
 const SignIn = () => {
   const { t } = useTranslation()
@@ -25,13 +25,18 @@ const SignIn = () => {
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
   const [errorEmpty, setErrorEmpty] = useState(false)
+  const [isError, setIsError] = useState(false)
 
   const { validPassword, verifiedPassword } = usePasswordValidation(password)
-  const { auth } = useSelector((state) => authSelector(state))
 
   useEffect(() => {
     verifiedPassword(password)
   }, [password])
+
+  useEffect(() => {
+    const empty = password.length && userName.length && validPassword
+    setErrorEmpty(!!empty)
+  }, [password, userName, validPassword])
 
   const onHandlerSubmit = (e) => {
     e.preventDefault()
@@ -40,11 +45,10 @@ const SignIn = () => {
       if (!userName.length || !password.length) throw new Error('Campo obligatorio')
 
       dispatch(authAction.signin())
-      console.log(auth.isLogin)
       localStorage.setItem('token', 'hahahajajah')
       history.push('/app')
     } catch (error) {
-      setErrorEmpty(true)
+      setIsError(true)
     }
   }
 
@@ -53,7 +57,7 @@ const SignIn = () => {
   return (
     <>
       <form id="f_login" name="f_login">
-        <InputText
+        <InputEmail
           id="username"
           name="username"
           label={t('form.field.username')}
@@ -71,9 +75,9 @@ const SignIn = () => {
           placeholder={t('form.field.password')}
           onChange={(e) => setPassword(e.target.value)}
         />
-        {errorEmpty ? <MessageInputError error={t('form.error.field.required')} /> : null}
         <hr />
-        <ButtonSubmit onClick={onHandlerSubmit} text={t('button.enter')} />
+        {isError ? <MessageInputError msg={t('form.login.error')} /> : null}
+        <ButtonSubmit onClick={onHandlerSubmit} text={t('button.enter')} disabled={errorEmpty} />
       </form>
     </>
   )

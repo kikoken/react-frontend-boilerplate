@@ -1,5 +1,6 @@
 {
     "form.field.required": "Campos Obligatorios",
+    "form.login.error": "No se ha logrado logear, por favor revise",
     "form.field.username": "Usuario",
     "form.field.password": "Clave",
     "button.enter": "Ingresar"

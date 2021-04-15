@@ -12,7 +12,8 @@ const AUTH_SIGNOUT_SUCCESS = '[auth]/SIGNOUT_SUCCESS'
 // Initial State
 const InitialState = {
   isLogin: false,
-  isLoading: false
+  isLoading: false,
+  isError: false
 }
 
 // ActionTypes
@@ -28,7 +29,7 @@ export const actionTypes = {
 export default function reducer(state = InitialState, action = {}) {
   switch (action.type) {
     case actionTypes.AUTH_SIGN_IN:
-      return { ...state, isLoading: true }
+      return { ...state, isError: false, isLoading: true }
     case actionTypes.AUTH_SIGN_OUT:
       return { ...state, isAuth: false }
     case actionTypes.AUTH_SIGNIN_SUCCESS:
@@ -36,7 +37,7 @@ export default function reducer(state = InitialState, action = {}) {
     case actionTypes.AUTH_SIGNOUT_SUCCESS:
       return { ...state, isLoading: false, isAuth: false }
     case actionTypes.AUTH_FAILED:
-      return { ...state, isLoading: false }
+      return { ...state, isLoading: false, isError: false }
     default:
       return state
   }

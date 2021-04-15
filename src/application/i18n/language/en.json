@@ -1,5 +1,6 @@
 {
     "form.error.field.required": "Required fields",
+    "form.login.error": "Login has not been possible, please check",
     "form.field.username": "Username",
     "form.field.password": "Password",
     "button.enter": "Sign In"

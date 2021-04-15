@@ -8,7 +8,7 @@
 const regExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
 const ValidatePassword = (password) => {
   if (typeof password !== 'string' || password === undefined) return false
-  if (password.length !== 8) return false
+  if (password.length < 8) return false
   if (!regExp.test(password)) return false
 
   return true
