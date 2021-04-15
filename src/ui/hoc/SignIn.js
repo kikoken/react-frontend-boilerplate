@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import { useState, useEffect } from 'react'
 import { Redirect, useHistory } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
 // components
 import InputText from 'ui/components/molecules/forms/InputText'
@@ -14,15 +15,19 @@ import MessageInputError from 'ui/components/atoms/MessageInputError'
 // translations
 import { useTranslation } from 'react-i18next'
 
+import { actionCreators as authAction, selector as authSelector } from 'domain/auth/features'
+
 const SignIn = () => {
   const { t } = useTranslation()
   const history = useHistory()
+  const dispatch = useDispatch()
 
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
   const [errorEmpty, setErrorEmpty] = useState(false)
 
   const { validPassword, verifiedPassword } = usePasswordValidation(password)
+  const { auth } = useSelector((state) => authSelector(state))
 
   useEffect(() => {
     verifiedPassword(password)
@@ -34,6 +39,8 @@ const SignIn = () => {
     try {
       if (!userName.length || !password.length) throw new Error('Campo obligatorio')
 
+      dispatch(authAction.signin())
+      console.log(auth.isLogin)
       localStorage.setItem('token', 'hahahajajah')
       history.push('/app')
     } catch (error) {

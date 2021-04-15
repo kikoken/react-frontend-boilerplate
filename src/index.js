@@ -4,15 +4,19 @@ import ReactDOM from 'react-dom'
 import 'application/i18n'
 
 // Store
-/* mport { Provider } from 'react-redux'
-import Store from 'infrastructure/store' */
+import { Provider } from 'react-redux'
+import getStore from 'infrastructure/store'
 
 // Components
 import App from './App'
 
+const { store } = getStore()
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 )

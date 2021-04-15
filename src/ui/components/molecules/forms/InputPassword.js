@@ -17,6 +17,7 @@ const InputPassword = (props) => {
           value={value}
           placeholder={placeholder}
           onChange={onChange}
+          autoComplete="off"
         />
         {error ? <MessageInputError msg={error} /> : null}
       </label>

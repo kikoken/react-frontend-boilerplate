@@ -1,11 +1,11 @@
 import { takeLatest } from 'redux-saga/effects'
 
 // actions
-import { actionCreators as authActions } from 'domain/auth/features'
+import { actionTypes as authActions } from 'domain/auth/features'
 
 // Sagas
 import tryAuthSignIn from 'domain/auth/sagas/signIn'
 
 export default function* rootSaga() {
-  yield takeLatest(authActions.signIn, tryAuthSignIn)
+  yield takeLatest(authActions.AUTH_SIGN_IN, tryAuthSignIn)
 }
