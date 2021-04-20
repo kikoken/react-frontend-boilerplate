@@ -130,6 +130,19 @@ https://airbnb.io/enzyme/
 A popular addition to Jest that provides additional functionality to traversing through component trees,
 as well as helper functions for testing, triggering user events being an example.
 
+## VSCODE EXTENSIONS
+-  code metrics
+- dotenv
+- error lens
+-  es7 react/redux/graphql
+- eslint
+- npm intellisense
+- Prettier
+- sass
+- sonarlint
+- tabnine
+
+
 
 ## Running 
 ### `yarn start`
