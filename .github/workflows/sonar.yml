@@ -1,0 +1,19 @@
+name: SONARQUBE
+on:
+  pull_request:
+    branches: [master]
+jobs:
+  sonar-scanner:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Run sonarqube
+        uses: warchant/setup-sonar-scanner@v3
+        run: sonar-scanner
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+          -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
+          -Dsonar.host.url=${{ secrets.SONAR_URL }}
+          -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY}}
